@@ -67,6 +67,11 @@ window.mapPicker = ($wire, config) => {
             } else {
                 this.map.setView(new L.LatLng(location.lat, location.lng))
             }
+
+            window.addEventListener('gps-updated', event => {
+                let location = this.getCoordinates();
+                that.map.setView(new L.LatLng(location.lat, location.lng));
+            })
         },
         removeMap: function (el) {
 
