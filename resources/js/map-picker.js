@@ -10,7 +10,7 @@ window.mapPicker = ($wire, config) => {
             const that = this;
 
             this.map = L.map(el, config.controls);
-            this.map.on('load', () => {
+            this.map.whenReady(() => {
                 setTimeout(() => this.map.invalidateSize(true), 0);
                 if (config.showMarker === true) {
                     this.marker.setLatLng(this.map.getCenter())
